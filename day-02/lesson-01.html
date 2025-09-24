@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <!-- 2. 내부 스타일 시트 사용하기 -->
+        <!-- 내부 스타일 시트는 HTML 파일 내부에 CSS 코드를 작성하는 방법입니다. -->
+        <!-- HTML에서 제공하는 태 중 style 태그를 사용합니다. -->
+        <style>
+            h1 {
+                color: red;
+            }
+        </style>
+
+        <!-- 3. 외부 스타일 시트 사용하기 -->
+        <!-- 외부 스타일 시트는 CSS 코드를 작성하는 별도 파일을 만들어 HTML 문서와 CSS를 연결하는 방법입니다. -->
+        <!-- <link rel="stylesheet" href="CSS 파일 경로" /> -->
+        <link rel="stylesheet" href="./index.css" />
+        <!-- 외부 스타일 시트방법은 코드를 유지 보수하기가 편하고 성능적으로도 가장 좋기 때문에 대부분 외부 스타일 시트 방법을 사용합니다. -->
+    </head>
+    <body>
+        <!-- 1. CSS 문법 살펴보기 -->
+        <!-- CSS 문법은 크게 선택자와 선언부로 구분합니다. -->
+        <!-- 선택자는 CSS 스타일을 적용할 HTML 태그(요소)를 선택하는 영역입니다. -->
+        <!-- 선언부는 선택자에서 선택한 태그에 적용할 스타일을 작성하는 영역으로 중괄호({ }) 안에 넣습니다. -->
+        <!-- 선언부에 작성하는 스타일은 반드시 속성과 값을 한 쌍으로 작성합니다. -->
+        <!-- 이때 값의 뒤에 세미콜론(;)을 넣으면 여러 스타일을 연속해서 작성할 수 있습니다. -->
+
+        <h1>Heading Level 1</h1>
+        <h2>Heading Level 2</h2>
+
+        <!-- 4. 인라인 스타일 사용하기 -->
+        <!-- 인라인 스타일은 HTML 태그에서 사용하라 수 있는 style 속성에 CSS 코드를 작성하는 방법입니다. -->
+        <!-- <태그 style="CSS 코드"></태그> -->
+        <h3 style="color: blue; font-size: 24px">Heading Level 3</h3>
+    </body>
+</html>
