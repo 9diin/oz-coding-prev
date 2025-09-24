@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- 폼 구성하기 -->
+        <!-- 폼(form)은 HTML에서 사용자와 상호작용해서 정보를 입력받고 서버로 전송하기 위한 양식을 의미합니다. -->
+
+        <!-- 1. form 태그 -->
+        <!-- form 태그는 폼 양식을 의미하는 태그입니다. -->
+        <!-- 그래서 HTML의 폼을 구성하는 태그는 모두 form 태그 안에 작성합니다. -->
+        <!-- form 태그는 action과 method 속성을 함께 사용합니다. -->
+        <form action="서버 URL" method="get 또는 post"></form>
+
+        <!-- 1.1 action 속성 -->
+        <!-- action 속성에는 폼 요소에서 사용자와 상호작용으로 입력받은 값들을 전송할 서버의 URL 주소를 적습니다. -->
+
+        <!-- 1.2 method 속성 -->
+        <!-- method 속성에는 입력받은 값을 서버에 전송할 때 송신 방식을 적습니다. -->
+        <!-- 속성값으로 get 또는 post를 사용할 수 있습니다. -->
+
+        <!-- 일반적으로 폼 요소의 전송은 서버에서 처리하므로 서버 영역을 담당하는 개발자가 작성합니다. -->
+        <!-- 우리가 현재 배우는 내용은 서버 영역이 아니기 때문에 action 속성값은 "#"으로 적습니다. -->
+
+        <!-- 2. input 태그 -->
+        <!-- 로그인 페이지의 아이디와 비밀번호처럼 입력받는 요소를 생성할 때는 input 태그를 사용합니다. -->
+        <!-- input 태그에는 type, name, value 속성이 있는데, type 속성은 필수로 사용해야 하고, name과 value 속성은 선택해서 사용할 수 있습니다. -->
+        <input type="종류" name="이름" value="초깃값" />
+
+        <!-- 2.1 type 속성 -->
+        <!-- 2.1.1 한줄 텍스트를 입력할 수 있는 요소를 생성합니다. -->
+        <input type="text" />
+
+        <!-- 2.1.2 비밀번호를 입력할 수 있는 요소를 생성합니다. -->
+        <input type="password" />
+
+        <!-- 2.1.3 숫자만 입력할 수 있는 요소를 생성합니다.  -->
+        <input type="number" />
+
+        <!-- 2.1.4 파일 업로드 요소를 생성합니다. -->
+        <input type="file" />
+
+        <!-- 2.1.5 체크박스 요소를 생성합니다. -->
+        <input type="checkbox" />
+
+        <!-- 2.1.6 라디오버튼 요소를 생성합니다. -->
+        <input type="radio" />
+
+        <!-- 2.1.7 사용자 눈에 보이지 않는 입력 요소를 생성합니다. -->
+        <input type="hidden" />
+
+        <!-- 2.2 name 속성 -->
+        <!-- name 속성에는 입력 요소의 이름을 작성합니다. -->
+        <!-- 입력 요소가 form 태그에 의해 서버로 전송될 때, name 속성에 적힌 값이 이름으로 지정됩니다. -->
+        <!-- 서버에서는 지정된 이름으로 입력 요소를 식별할 수 있습니다. -->
+
+        <!-- 2.3 value 속성 -->
+        <!-- value 속성에는 입력 요소의 초깃값을 작성합니다. -->
+        <!-- 입력 요소는 보통 사용자에게서 수동으로 값을 입력받지만, 상황에 따라 초깃값을 설정해야 하는 경우가 있습니다. -->
+        <!-- 이럴 때 사용하는 속성입니다. -->
+
+        <!-- 3. label 태그 -->
+        <!-- label 태그는 form 태그 안에서 사용하는 상호작용 요소에 이름을 붙일 때 사용합니다. -->
+        <!-- label 태그를 잘 사용하면 label 태그만 클릭해도 상호작용 요소를 선택할 수 있습니다. -->
+
+        <!-- 3.1 암묵적인 방법 -->
+        <!-- 암묵적인 방법은 label 태그에 상호작용 요소를 포함하는 방법으로, label 태그를 다음과 같이 사용합니다. -->
+        <label>
+            아이디
+            <!-- 상호작용 요소 ⬇️ -->
+            <input type="text" />
+        </label>
+
+        <!-- 3.2 명시적인 방법 -->
+        <!-- 명시적인 방법은 label 태그의 for 속성과 상호작용 요소의 id 속성을 같은 값으로 설정하는 방법으로 -->
+        <!-- label 태그를 다음과 같이 사용합니다. -->
+        <label for="username">닉네임</label>
+        <input type="text" id="username" />
+
+        <!-- 3.3 예외적인 방법 -->
+        <label for="password">
+            비밀번호
+            <input type="password" id="password" />
+        </label>
+
+        <!-- 4. fieldset와 legend 태그 -->
+        <!-- form 태그 안에 사용된 다양한 상호작용 요소도 fieldset 태그를 사용해 그룹 지을 수 있습니다. -->
+        <!-- fieldset 태그로 그룹을 지으면 그룹별로 박스 모양의 테두리가 생깁니다. -->
+        <!-- 이렇게 그룹 지은 요소들은 legend 태그로 이름응ㄹ 붙일 수 있습니다. -->
+
+        <form action="#">
+            <fieldset>
+                <legend>그룹 이름</legend>
+                <!-- 상호작용 요소 생략 -->
+            </fieldset>
+        </form>
+
+        <form action="#">
+            <fieldset>
+                <legend>로그인</legend>
+                <p>
+                    <label for="email">이메일</label>
+                    <input type="text" id="email" />
+                </p>
+                <p>
+                    <label for="password">비밀번호</label>
+                    <input type="password" id="password" />
+                </p>
+            </fieldset>
+        </form>
+
+        <!-- 5. textarea 태그 -->
+        <!-- 여러 줄의 입력 요소를 생성할 때는 input 태그가 아닌 textarea 태그를 사용합니다. -->
+        <!-- 웹 사이트에서 글을 작성할 때, 사용하는 입력 요소는 대부분 textarea 태그로 생성합니다. -->
+        <textarea name="" id="">초깃값</textarea>
+
+        <!-- textarea 태그는 input 태그와는 다르게 닫는 태그가 있습니다. -->
+        <!-- 그래서 input 태그로 생성한 입력 요소의 초깃값은 value 속성으로 정의하지만, -->
+        <!-- textarea 태그로 생성한 여러 줄의 입력 요소는 콘텐츠 영역에 초깃값을 정의합니다. -->
+
+        <form action="#" method="post">
+            <fieldset>
+                <legend>토픽 작성하기</legend>
+                <p>
+                    <label for="title">제목</label>
+                    <input type="text" id="title" name="title" />
+                </p>
+                <p>
+                    <label for="description">내용</label>
+                    <textarea name="description" id="description"></textarea>
+                </p>
+            </fieldset>
+        </form>
+
+        <!-- 6. select, option, optgroup 태그 -->
+        <!-- select 태그를 사용하면 콤보박스(combobox)를 생성할 수 있습니다. -->
+        <!-- 콤보박스에 항목 하나를 추가할 때는 option 태그를 사용하고, 항목들을 그룹으로 묶고 싶다면 optgroup 태그를 사용합니다. -->
+
+        <select name="" id="">
+            <optgroup label="그룹 이름">
+                <option value="서버에 전송할 값">웹 브라우저에 표시할 값</option>
+            </optgroup>
+        </select>
+
+        <!-- option 태그는 서버에 전송할 값을 value 속성으로 지정할 수 있는데, 속성을 생략하면 option 태그의 콘텐츠로 적은 텍스트가 값으로 전송됩니다. -->
+        <!-- optgroup 태그로 항목들을 그룹 지을 때 반드시 label 속성으로 그룹명을 지정해야 합니다. -->
+
+        <select name="city" id="city">
+            <option value="강동구">강동구</option>
+            <option value="강서구">강서구</option>
+            <option value="강남구">강남구</option>
+            <option value="강북구">강북구</option>
+        </select>
+
+        <select name="city" id="city">
+            <optgroup label="서울시">
+                <option value="강동구">강동구</option>
+                <option value="강서구">강서구</option>
+                <option value="강남구">강남구</option>
+                <option value="강북구">강북구</option>
+            </optgroup>
+            <optgroup label="경기도 성남시">
+                <option value="중원구">중원구</option>
+                <option value="분당구">분당구</option>
+            </optgroup>
+        </select>
+
+        <!-- 6.1 size 속성 -->
+        <!-- size 속성은 콤보박스에서 화면에 노출되는 항목 개수를 지정하는 속성입니다. -->
+        <!-- 속성값으로 숫자를 적으면 되고, 생략할 경우 기본으로 1개 항목이 표시됩니다. -->
+        <select name="city" id="city" size="3">
+            <option value="강동구">강동구</option>
+            <option value="강서구">강서구</option>
+            <option value="강남구">강남구</option>
+            <option value="강북구">강북구</option>
+        </select>
+
+        <!-- 6.2 multiple 속성 -->
+        <!-- select 태그로 생성하는 콤보박스는 기본으로 1개 항목만 선택할 수 있습니다. -->
+        <!-- 그러나 multiple 속성을 사용하면 여러 항목을 동시에 선택할 수 있습니다. -->
+        <select name="city" id="city" multiple>
+            <option value="강동구">강동구</option>
+            <option value="강서구">강서구</option>
+            <option value="강남구">강남구</option>
+            <option value="강북구">강북구</option>
+        </select>
+
+        <!-- 6.3 selected 속성 -->
+        <!-- 콤보박스는 첫 번째 option 태그의 값이 기본 선택된 상태로 표시되는데, selected 속성을 사용하면 기본 선택 항목을 변경할 수 있습니다. -->
+        <select name="city" id="city" multiple>
+            <option value="강동구">강동구</option>
+            <option value="강서구">강서구</option>
+            <option value="강남구">강남구</option>
+            <option value="강북구">강북구</option>
+            <option value="서초구" selected>서초구</option>
+        </select>
+
+        <!-- 7. button 태그 -->
+        <button type="종류">버튼 내용</button>
+        <!-- type 속성값은 폼을 서버에 전송할 목적이면 submit, 상호작용 요소에 입력된 내용을 초기화하는 버튼이면 reset, -->
+        <!-- 단순한 버튼이면 button으로 지정합니다. -->
+
+        <!-- 8. 폼 관련 태그에서 사용할 수 있는 추가 속성 -->
+        <!-- 8.1 disabled 속성 -->
+        <!-- disabled 속성은 상호작용 요소를 비활성화하며, input, textarea, select, button 태그에 사용할 수 있습니다. -->
+        <!-- 태그가 비활성화되면 입력 요소는 텍스트를 입력할 수 없고, 목록 상자는 항목을 선택할 수 없으며, 버튼 요소는 버튼을 클릭할 수 없습니다. -->
+        <태그 disabled>
+        <input type="text" disabled />
+        <button type="button" disabled>버튼 비활성화</button>
+
+        <!-- 8.2 readonly 속성 -->
+        <!-- readonly 속성은 상호작용 요소를 읽기 전용으로 변경합니다. -->
+        <!-- 읽기 전용으로 변경되면 입력 요소에 텍스트를 입력할 순 없지만, 요소를 선택하거나 드래그해서 내용을 복사할 순 잇습니다.  -->
+        <!-- readonly 속성은 상호작용 요소를 생성할 수 있는 태그 중 textarea 태그와 input 태그에서 사용할 수 있습니다. -->
+        <태그 readonly>
+        <input type="text" readonly />
+        <textarea name="" id="" readonly></textarea>
+
+        <!-- 8.3 maxlength 속성 -->
+        <!-- maxlength 속성은 입력할 수 있는 글자 수를 제한합니다. 속성값으로는 숫자를 입력합니다. -->
+        <태그 maxlength="숫자">
+        <input type="text" maxlength="15" />
+        <textarea name="" id="" maxlength="30"></textarea>
+
+        <!-- 8.4 checked 속성 -->
+        <!-- checked 속성은 요소를 선택된 상태로 표시합니다. -->
+        <!-- 선택 요소가 있어야 하므로 input 태그의 type 속성값이 checkbox나 radio인 요소에만 사용할 수 있습니다. -->
+        <태그 checked>
+        <fieldset>
+            <legend>과일</legend>
+            <label for="apple">사과</label>
+            <input type="checkbox" id="apple" name="apple" value="apple" checked />
+
+            <label for="banana">바나나</label>
+            <input type="checkbox" id="banana" name="banana" value="banana" />
+
+            <label for="orange">오렌지</label>
+            <input type="checkbox" id="orange" name="orange" value="orange" />
+        </fieldset>
+
+        <!-- 8.5 placeholder 속성 -->
+        <!-- placeholder 속성은 입력 요소에 어떠한 값을 입력하면 되는지 힌트를 적는 용도로 사용합니다. -->
+        <input type="text" placeholder="입력값에 대한 힌트" />
+        <input type="text" placeholder="검색어를 입력하세요." />
+    </body>
+</html>
