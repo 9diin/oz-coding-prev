@@ -1,24 +1,38 @@
-/* .flex-container {
-    display: inline-flex;
+/* .flex-container { */
+/* display: inline-flex; */
+/* display: flex; */
 
-    gap: 12px;
-}
+/* flex-direction의 기본 값은 row */
+/* display: flex;
+    flex-direction: row; */
 
-.flex-container > div {
+/* gap: 8px; */
+/* } */
+
+/* .flex-container > div {
     width: 100px;
     height: 100px;
 
     background-color: black;
+    color: white;
 } */
 
 .flex-container {
     width: 300px;
 
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
+
+    /* gap 속성은 
+    반드시 display: flex; 혹은 
+    display: grid; 속성이 있을 때만 사용할 수 있다. */
+    gap: 8px;
 }
 
 .flex-item {
+    width: 100px;
+    height: 100px;
+
     background-color: red;
     color: white;
 }
