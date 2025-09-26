@@ -1,0 +1,24 @@
+/* .flex-container {
+    display: inline-flex;
+
+    gap: 12px;
+}
+
+.flex-container > div {
+    width: 100px;
+    height: 100px;
+
+    background-color: black;
+} */
+
+.flex-container {
+    width: 300px;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-item {
+    background-color: red;
+    color: white;
+}
