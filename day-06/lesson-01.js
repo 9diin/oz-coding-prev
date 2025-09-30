@@ -101,7 +101,7 @@ console.log(user); // { name: "test", email:"test@test.com" }
 const users = ["Kim", "Lee", "Park"];
 console.log(users); // ['Kim', 'Lee', 'Park']
 
-users = ["Kim", "Lee", "Park"]; // Assignment to constant variable.
+users = ["a", "b", "c"]; // Assignment to constant variable.
 
 users.push("Choi");
 console.log(users); // ['Kim', 'Lee', 'Park', 'Choi']
