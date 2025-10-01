@@ -207,3 +207,56 @@ console.log("내부 속성-값을 추가 후: ", newUser); // { name: '개발자
 // 위 예시도 생성자를 활용한 객체 생성 방법입니다.
 // new Object()를 사용하여 빈 객체를 생성한 후, 점 표기법(.)을 통해 속성을 추가하고 있습니다.
 // 결과적으로 newUser라는 객체는 이름-값(key-value) 쌍의 형태로 저장됩니다.
+
+/**
+ * 객체 리터럴
+ * 객체를 만드는 방식으로 중괄호({})라는 기호를 통해 만들었습니다.
+ * 이것을 리터럴 방식으로 만들었다고 한다.
+ *
+ * 객체 데이터에서의 key는 고유하며, 순서는 중요하지 않다.
+ * 단, 동일한 키 값일 경우 나중에 작성된 값으로 덮어 씌여진다.
+ */
+
+const member = {
+    name: "9Diin",
+    job: "Programmer",
+    age: 100,
+};
+console.log(member); // { name: "9Diin", job: "Programmer", age: 100 }
+
+// 점 표기법
+console.log(member.name); // 9Diin
+console.log(member.job); // Programmer
+console.log(member.age); // 100
+console.log(member.email); // undefined
+
+// 대괄호 표기법
+console.log(member["name"]); // 9Diin
+console.log(member["job"]); // Programmer
+console.log(member["age"]); // 100
+console.log(member["email"]); // undefined
+
+const userA = {
+    name: "유저 A",
+    age: 10,
+    gender: "male",
+};
+
+const userB = {
+    name: "유저 B",
+    age: 20,
+    brother: userA,
+};
+
+console.log(userA.name); // 유저 A
+console.log(userB.brother); // { name: "유저 A", age: 10, gender: "male" }
+console.log(userB.brother["age"]); // 10
+console.log(userB["brother"].gender); // male
+
+const family = [userA, userB];
+console.log(family);
+console.log(family[0].gender); // male
+console.log(family[1]["name"]); // 유저 B,
+
+// 객체 리터럴 방식도 배열 리터럴 방식과 마찬가지로 객체를 만드는 방식을 중괄호({})라는 기호를 통해 만드는 것을 말합니다.
+// 이것 또한 객체 리터럴 방식으로 만들었다고 말합니다.
