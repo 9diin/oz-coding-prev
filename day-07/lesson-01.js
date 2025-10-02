@@ -9,9 +9,9 @@
 // 1.1 if
 // if문은 자바스크립트가 조건에 따라 문을 실행할 수 있게 하는 기본적인 제어문입니다.
 
-// if (expression: 조건, 표현식) {
-//     statement; 실행문
-// }
+if (expression: 조건, 표현식) {
+    statement; // 실행문
+}
 
 // 첫 번째로, 위와 같은 형태에서는 expression(표현식)을 평가합니다.
 // 결괏값이 true와 같은 값이면, statement(실행문)을 실행합니다.
@@ -96,11 +96,11 @@ if (n === 1) {
 
 // switch 문으로 똑같은 상황에 대응할 수 있습니다.
 // switch 문은 switch 키워드 뒤에 괄호를 들러싼 표현식을 쓰고
-// 그 뒤에 중괄호로 ㄲ마산 코드 블록을 쓰는 형태입니다.
+// 그 뒤에 중괄호로 감싼 코드 블록을 쓰는 형태입니다.
 
-// switch (expression) {
-//     statements;
-// }
+switch (expression) {
+    statements;
+}
 
 // switch 문의 정확한 문법은 이보다 복잡합니다.
 // 코드 블록 곳곳에 case 키워드를 쓰고 그 뒤에 표현신과 콜론을 붙일 수 있습니다.
