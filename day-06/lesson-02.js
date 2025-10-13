@@ -98,7 +98,7 @@ console.log(str7); // Hello world!~
 // 바로 예약어인 true와 false 입니다.
 
 // 불리언은 조건문, 반복문 등에서 논리적 판단을 수행하는데 주로 사용됩니다.
-//앞서 말했듯이 true와 false라는 두 가지의 값만 사용하는 논리 데이터이며
+// 앞서 말했듯이 true와 false라는 두 가지의 값만 사용하는 논리 데이터이며
 // true는 긍정의 의미를, false는 부정의 의미를 가지고 있습니다.
 
 const truthy = true;
@@ -172,7 +172,7 @@ console.log(newArr);
 const animals = ["호랑이", "사자", "코끼리", "원숭이", "악어"]; // 배열 리터럴 방식
 console.log(animals); // ["호랑이", "사자", "코끼리", "원숭이", "악어"]
 console.log(animals[1]); // 사자
-console.log(animals.length); //5
+console.log(animals.length); // 5
 // 내가 해당 배열의 길이를 알고 있을 때만 특정 인덱스 번호를 통해 마지막 요소를 조회할 수 있다.
 console.log(animals[4]); // 해당 배열의 가장 마지막 요소 조회 => 악어
 // 내가 해당 배열의 길이를 모를 경우에는 어떻게 배열의 마지막 요소를 조회할 수 있을까?
