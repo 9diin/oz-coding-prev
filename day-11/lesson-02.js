@@ -130,6 +130,14 @@ console.log("stack.pop(): ", stack.pop()); // undefined
 
 let queue = []; // queue => []
 queue.push(1, 2); // queue => [1, 2]
+console.log(queue); // [1, 2]
+
+queue.unshift(100, 200);
+console.log(queue); // unshift(300, 400) ==>  [100, 200, 1, 2] <== push(3, 4)
+
+queue.unshift(300, 400);
+console.log(queue); // [300, 400, 100, 200, 1, 2]
+
 queue.shift(); // queue => [2], 1을 반환
 queue.push(3); // queue => [2, 3]
 queue.shift(); // queue => [3], 2를 반환
