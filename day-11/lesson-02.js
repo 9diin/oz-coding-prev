@@ -79,3 +79,58 @@ let phrases = ["hello world", "the definitive guide"];
 // console.log(words);
 let words = phrases.flatMap((phrase) => phrase.split(" "));
 console.log(words);
+
+// 3. concat()으로 배열 병합
+// concat() 메서드는 기존 배열의 요소를 포함하고 그 뒤에 concat()의 인자를 포함하는 새 배열을 만들어 반환합니다.
+// 인자에 배열이 아니라 요소가 들어가 있다면, 그 요소를 추가합니다.
+// 하지만 concat()은 배열의 배열을 재귀적으로 평탄화하지는 않습니다.
+// concat()은 기존 배열을 수정하지 않습니다.
+
+let arr3 = [1, 2, 3];
+
+const res13 = arr3.concat(4, 5);
+console.log(res13); // [1, 2, 3, 4, 5]
+
+const res14 = arr3.concat([4, 5], [6, 7]);
+console.log(res14); // [1, 2, 3, 4, 5, 6, 7]
+
+const res15 = arr3.concat(4, [5, [6, 7]]);
+console.log(res15); // [1, 2, 3, 4, 5, [6, 7]]
+
+console.log(arr3); // [1, 2, 3]
+
+// 4. 스택과 큐 메서드
+// push()와 pop() 메서드는 배열을 스택처럼 다루는 메서드입니다.
+// push() 메서드는 배열의 끝에 하나 이상의 새 요소를 추가하고 새 길이를 반환합니다.
+// push() 메서드는 concat()과 달리 배열 인자를 평탄화하지 않습니다.
+// pop() 메서드는 그 반대입니다. 배열의 마지막 요소를 꺼내서 반환하며 배열 길이를 줄입니다.
+// 두 메서드는 모두 기존 배열을 수정합니다.
+
+let stack = []; // stack => [];
+
+stack.push(1, 2); // stack => [1, 2]
+console.log("stack: ", stack); // => [1, 2]
+console.log("stack.pop(): ", stack.pop()); // => 2
+
+// 이 시점의 stack은 => [1]
+
+stack.pop(); // 이 시점의 stack은 => []
+console.log("stack: ", stack); // []
+console.log("stack.pop(): ", stack.pop()); // undefined
+
+// stack.push(3); // stack => [1, 3]
+// stack.pop(); // stack => [1]
+// stack.push([4, 5]); // stack => [1, [4, 5]]
+// stack.pop(); // stack => [1]
+// stack.pop(); // stack => []
+
+// unshift()와 shift() 메서드는 push()와 pop()과 거의 비슷하지만 배열의 마지막이 아니라 앞 부분에서 이루어진다는 것이 다릅니다.
+// unshift()는 배열의 시작 부분에 요소를 추가하고, 기존의 배열 요소를 뒤로 밀고 새 길이를 반환합니다.
+// shift()는 배열의 첫 번째 요소를 꺼내 반환하고, 기존의 배열 요소를 앞으로 당깁니다.
+
+let queue = []; // queue => []
+queue.push(1, 2); // queue => [1, 2]
+queue.shift(); // queue => [2], 1을 반환
+queue.push(3); // queue => [2, 3]
+queue.shift(); // queue => [3], 2를 반환
+queue.shift(); // queue => [], 3을 반환
