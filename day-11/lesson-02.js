@@ -12,8 +12,8 @@
 let nums = [1, 2, 3, 4, 5];
 
 const res = nums.reduce((acc, num, index, arr) => {
-    console.log("acc: ", acc); // x => 0
-    console.log("num: ", num); // y => 1, 2, 3, 4, 5
+    console.log("acc: ", acc); // acc => 0
+    console.log("num: ", num); // num => 1, 2, 3, 4, 5
     return acc + num;
 }, 0);
 console.log(res); // 15
