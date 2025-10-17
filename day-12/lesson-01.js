@@ -74,7 +74,7 @@ function getPropertyNames2(obj, arr = []) {
 function sum(...numbers) {
     let total = 0;
 
-    console.log("numbers: ", numbers); // []
+    console.log("numbers: ", numbers); // 배열
 
     for (let number of numbers) {
         total += number;
