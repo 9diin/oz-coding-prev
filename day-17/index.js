@@ -58,3 +58,54 @@ console.log("obj: ", obj);
 
 // 그래서 생긴 게 바로
 // 로컬 스토리지(Local Storage)와 세션 스토리지(Sesstion Storage)입니다.
+
+// 2.2 로컬 스토리지 (Local Storage)
+// 브라우저가 사용자의 컴퓨터 안에 데이터를 영구적으로 저장하는 공간
+// 쉽게 말하면 로컬 스토리지는 "브라우저 전용 미니 창고"라고 생각하면 됩니다.
+// 브라우저를 꺼도, 컴퓨터를 꺼도 데이터가 남아있습니다.
+
+// 데이터 저장
+// localStorage.setItem("저장소 이름", "값")
+localStorage.setItem("userName", "9Diin");
+localStorage.setItem("user", JSON.stringify(user));
+
+// 데이터 꺼내기
+const username = localStorage.getItem("userName");
+console.log(username); // 9Diin
+
+// 데이터 삭제
+// localStorage.removeItem("user");
+
+// 전부 다 지우기 => 로그아웃 시에 많이 활용
+// localStorage.clear();
+
+// JSON과 함께 자주 쓰이는 이유
+// 로컬 스토리지는 문자열만 저장할 수 있습니다.
+// 그런데 보통 우리는 객체 형태의 데이터를 다룹니다.
+// 그래서 JSON.stringify()와 JSON.parse()를 함께 사용합니다.
+
+const user2 = {
+    name: "9Diin",
+    age: 33,
+};
+
+// 객체 -> 문자열로 변환해서 저장
+localStorage.setItem("user2", JSON.stringify(user2));
+
+const data = JSON.parse(localStorage.getItem("user2")); // => string => object
+
+console.log(data.name); // 9Diin
+console.log(data.age); // 33
+
+// 2.3 세션 스토리지
+// 브라우저가 "현재 탭(창)"이 열려 있는 동안만 유지되는 임시 저장소
+// 세션 스토리지는 잠깐 쓰는 메모장입니다.
+// 페이지를 닫거나 새 탭으로 열면 데이터가 사라집니다.
+
+// 데이터 저장
+sessionStorage.setItem("tempData", "Hello");
+
+// 데이터 가져오기
+console.log(sessionStorage.getItem("tempData"));
+
+// 페이지 닫으면 데이터 사라짐

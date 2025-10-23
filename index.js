@@ -15,16 +15,26 @@
 // 3. ul, li, checkbox, 삭제 버튼
 
 // 1. input에 작성한 값을 어떻게 조회할 수 있을까?
-
 const insertBtn = document.querySelector(".input-box__btn");
 const inputField = document.querySelector(".input-box__input");
 
-const todos = [];
+const todos = JSON.parse(localStorage.getItem("tods")) || []; // 기존 todos를 로드하거나 빈 배열로 초기화
 
+// 등록
 insertBtn.addEventListener("click", () => {
     const inputValue = inputField.value;
+    todos.push(inputValue); // ["새로운 값"]
 
-    todos.push(inputValue);
+    localStorage.setItem("todos", JSON.stringify(todos)); // => 로컬 스토리지에는 "todos" - "["안녕하세요", "Hello world", "새로운 값"]"
+});
 
-    console.log(todos);
+todos.map((todo) => {
+    // li태그를 활용한 UI를 반복해서 그리면 되지 않을까?
+    return `<li class="item">
+            <input type="checkbox" class="item__checkbox" />
+            <p class="item__content">${todo}</p>
+            <button class="item__btn">
+                <i data-lucide="x"></i>
+            </button>
+        </li>`;
 });
