@@ -138,6 +138,7 @@ async function test6() {
         await a(100);
         console.log("resolve 동작!");
     } catch (error) {
+        console.log("error: ", error);
         console.log("reject 동작!");
     } finally {
         console.log("Done!"); // resolve, reject 상관없이 무조건 실행
