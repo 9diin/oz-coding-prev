@@ -30,11 +30,19 @@ insertBtn.addEventListener("click", () => {
 
 todos.map((todo) => {
     // li 태그를 활용한 UI를 반복해서 그리면 되지 않을까?
+
+    const li = document.createElement("li");
+    const input = document.createElement("input");
+    const p = document.createElement("p");
+    const button = document.createElement("button");
+
+    li.append(input, p, button);
+
     return `<li class="item">
-            <input type="checkbox" class="item__checkbox" />
-            <p class="item__content">${todo}</p>
-            <button class="item__btn">
-                <i data-lucide="x"></i>
-            </button>
+               <input type="checkbox" class="item__checkbox" />
+               <p class="item__content">${todo}</p>
+               <button class="item__btn">
+                    <i data-lucide="x"></i>
+               </button>
         </li>`;
 });
