@@ -61,3 +61,40 @@ parent.append("새로운 텍스트", newDiv); // 여러 요소를 한 번에 추
 //         │   └── #text("안녕하세요")
 //         └── p (Element)
 //             └── #text("이것은 문단입니다.")
+
+// 9. removeChild
+// 자식 요소를 제거할 때 사용합니다.
+const parent = document.getElementById("parentElement");
+const child = document.getElementById("childElement");
+parent.removeChild(child);
+
+// 10. innerHTML
+// 요소의 HTML 콘텐츠를 가져오거나 설정할 때 사용합니다.
+// (주의: XSS 공격에 취약할 수 있으므로, 사용자 입력을 처리할 때는 주의가 필요합니다.)
+// XSS는 공격자가 악성 스크립트(보통 JavaScript)를 웹 페이지에 주입해 다른 사용자의 브라우저에서 실행되도록 만드는 취약점입니다.
+// 이 스크립트는 세션 탈취, 계정 권한 상승, 화면 조작, 피싱, 키로깅 등 다양한 악용이 가능합니다.
+const element = document.getElementById("id");
+element.innerHTML = "<span>새로운 HTML 콘텐츠</span>";
+
+// 11. textContent
+// 요소의 텍스트 콘텐츠를 가져오거나 설정할 때 사용합니다.
+const element = document.getElementById("id");
+element.textContent = "새로운 텍스트!";
+
+// 12. setAttribute / getAttribute
+// 요소의 속성을 설정하거나 가져올 때 사용합니다.
+const element = document.getElementById("id");
+element.setAttribute("class", "newClass"); // 클래스 속성 설정
+
+const className = element.getAttribute("class"); // 클래스 속성 가져오기
+
+console.log("element: ", element);
+console.log("className: ", className);
+
+// 13. classList.add / classList.remove / classList.toggle
+// 요소의 클래스를 추가하거나 제거하거나 토글할 때 사용합니다.
+const element = document.getElementById("id");
+
+element.classList.add("active"); // 클래스 추가
+element.classList.remove("active"); // 클래스 제거
+element.classList.toggle("active"); // 클래스가 있으면 제거, 없으면 추가

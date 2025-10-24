@@ -1,48 +1,91 @@
-// 1. input 태그에 "할 일"을 작성한다.
-// 2. + 버튼을 눌렀을 때, 어떤 이벤트가 동작하면서 작성한 "할 일" 데이터가 "어딘가"에 저장된다.
-// 3. 저장됨과 동시에 "어딘가"에 저장된 "할 일" 데이터를 호출하여 목록으로 보여준다.
-// 4. 체크 박스를 선택했을 때, 가운데 줄이 생기게 한다. => element.classList.toggle()을 활용하면 되지 않을까?
-// 5. X 버튼을 눌렀을 때, "할 일" 목록이 제거된다. 그리고 동시에 목록을 갱신하여 현재 리스트를 보여준다.
+// To do Application 만들기
 
-// 우리가 개발을 하기 위해 필요한 정보
-// 1. 할 일 => new task => 문자열?
-// 2. 할 일들 => todos => [] 배열로 관리하면 되지 않을까?
-// 3. 할 일 갯수 => todos.length
+// - 기능 설계 -
+// ⭕️ 1. 할 일 추가하기 (+ 버튼 클릭 시)
+// 2. 할 일 조회하기
+// 3. 할 일 갯수 체크
+// 4. 체크박스 활성화 시, 할 일 완료 처리하기 (글자색 변경 및 가운데 줄 처리)
+// 5. 체크박스 비활성화 시, 다시 해야할 일로 변경(원상 복구)
+// 6. 할 일 삭제하기
+// 7. 만약, 할 일이 하나도 추가되지 않으면 "문구" => UX
+// => "조회 가능한 할 일이 없습니다.", "할 일을 추가하세요!" 등 => 최소 높이를 정해주면 좋을 것 같다?
+// 8. 스크롤 처리
+// ⭕️ 9. 공백으로 작성 후 할 일 추가할 시, 경고 문구 띄우기
+// 10. #뒤에 있는 숫자가 우선순위를 의미한다라고 가정하고, 순차적으로 보여준다.
 
-// HTML 요소
-// 1. 버튼
-// 2. input => Add new task의 값을 조회하기 위한
-// 3. ul, li, checkbox, 삭제 버튼
+// ====================================================================================================
 
-// 1. input에 작성한 값을 어떻게 조회할 수 있을까?
-const insertBtn = document.querySelector(".input-box__btn");
-const inputField = document.querySelector(".input-box__input");
+const inputField = document.querySelector(".input-box__input"); // 입력창 태그
+const createBtn = document.querySelector(".input-box__btn"); // + 버튼 태그
+const listContainer = document.querySelector(".list"); // ul 태그
 
-const todos = JSON.parse(localStorage.getItem("tods")) || []; // 기존 todos를 로드하거나 빈 배열로 초기화
+const todos = JSON.parse(localStorage.getItem("todos")) || [];
 
-// 등록
-insertBtn.addEventListener("click", () => {
+// 기능 - 할 일 추가하기
+// + 버튼 클릭 시, 할 일을 추가하고 로컬스토리지에 저장
+createBtn.addEventListener("click", () => {
     const inputValue = inputField.value;
-    todos.push(inputValue); // ["새로운 값"]
 
-    localStorage.setItem("todos", JSON.stringify(todos)); // => 로컬 스토리지에는 "todos" - "["안녕하세요", "Hello world", "새로운 값"]"
+    if (!inputValue) {
+        alert("할 일을 입력하세요.");
+        return; // 입력 값이 없으면 함수를 종료
+    }
+
+    todos.push(inputValue); // ["inputValue"]
+    localStorage.setItem("todos", JSON.stringify(todos)); // todos 배열을 로컬 스토리지에 저장
+
+    inputField.value = ""; // 버튼 클릭 후 입력 필드 초기화
+    alert("할 일이 추가되었습니다.");
 });
 
-todos.map((todo) => {
-    // li 태그를 활용한 UI를 반복해서 그리면 되지 않을까?
+// 할 일 목록을 화면에 출력하는 함수
+function renderTodos() {
+    // 1. 로컬 스토리지에서 내가 추가한 todos를 불러와야 한다.
+    // localStorage.getItem("todos"); // => string => JSON.parse()
+    // const todos = JSON.parse(localStorage.getItem("todos")) || [];
 
-    const li = document.createElement("li");
-    const input = document.createElement("input");
-    const p = document.createElement("p");
-    const button = document.createElement("button");
+    // 2. 할 일 목록이 없는 경우: 즉, todos가 빈 배열일 떄
+    if (todos.length === 0) {
+        // "조회 가능한 할 일 목록이 없습니다.", "할 일을 추가해주세요!", "조회 가능한 할 일이 없습니다." ...
+        // ul 태그 안에 위 문구를 삽입 시킨다.
+        const emptyMessage = document.createElement("p");
 
-    li.append(input, p, button);
+        emptyMessage.textContent = "할 일을 추가해주세요! 📈";
+        listContainer.appendChild(emptyMessage);
 
-    return `<li class="item">
-               <input type="checkbox" class="item__checkbox" />
-               <p class="item__content">${todo}</p>
-               <button class="item__btn">
-                    <i data-lucide="x"></i>
-               </button>
-        </li>`;
-});
+        return; // 이후 코드를 실행하지 않음
+    }
+
+    // 3. 할 일 목록이 있는 경우
+    todos.forEach((todo, index) => {
+        const listItem = document.createElement("li");
+        listItem.classList.add("item");
+
+        const checkbox = document.createElement("input");
+        checkbox.classList.add("item__checkbox");
+        checkbox.type = "checkbox";
+
+        const todoText = document.createElement("p");
+        todoText.classList.add("item__content");
+        todoText.textContent = todo;
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.classList.add("item__btn");
+
+        // 삭제 버튼 내부 요소에 아이콘 넣기
+        // - appendChild => 아이콘 태그를 받는 식별자
+        // const deleteIcon = document.createElement("i");
+        // deleteIcon.setAttribute("data-lucide", "x");
+        // deleteBtn.appendChild(deleteIcon);
+
+        // - innerHTML => X => 그냥 냅다 할당해버린다.
+        deleteBtn.innerHTML = '<i data-lucide="x"></i>';
+
+        listItem.append(checkbox, todoText, deleteBtn);
+        listContainer.appendChild(listItem);
+    });
+    lucide.createIcons();
+}
+
+// 페이지가 로드되면 할 일 목록을 렌더링
+renderTodos();
